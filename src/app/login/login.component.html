@@ -1,0 +1,215 @@
+<!-- LOGIN BOX -->
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Ysabeau Office', sans-serif;
+        background-color: #f1f1f1;
+    }
+
+    #q1 {
+        position: absolute;
+        top: 54%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        width: 75%;
+        max-width: 450px;
+        z-index: 1;
+    }
+
+    .container {
+        background-color: rgb(0, 0, 0);
+        border-radius: 55px;
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.598), 0 4px 8px 0 rgba(255, 255, 255, 0.598);
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+
+    }
+
+    h1#q3 {
+        padding-top: 19px;
+        padding-bottom: -4px;
+        text-align: center;
+        margin: -1rem 0;
+        font-family: 'Righteous', cursive;
+        letter-spacing: .1em;
+
+
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 17px;
+        background-color: #f8f8f8;
+        font-family: 'Ysabeau Office', sans-serif;
+
+    }
+
+    button#b1 {
+        width: 100%;
+        padding: 10px;
+        border-radius: 350px;
+        background-color: rgba(49, 116, 179, 0.427);
+        opacity: .8;
+        color: #fff;
+        cursor: pointer;
+        font-family: 'Ysabeau Office', sans-serif;
+
+    }
+
+    #b1:hover {
+        opacity: .6;
+
+
+
+    }
+
+
+
+    #q4 {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.705);
+        font-family: 'Ysabeau Office', sans-serif;
+
+    }
+
+    #q5 {
+        text-align: center;
+        color: rgba(109, 129, 196, 0.744);
+        display: block;
+        margin-top: 10px;
+        font-family: 'Ysabeau Office', sans-serif;
+
+    }
+
+    @media only screen and (max-width: 600px) {
+        #q1 {
+            width: 80%;
+            left: 50%;
+            top: 41%;
+            transform: translate(-50%, -50%);
+        }
+
+        #q3 {
+            font-size: 43px;
+            padding-bottom: 0px;
+
+        }
+    }
+</style>
+
+<body>
+
+<!-- navbar -->
+    <div class="parent" style="background-color: rgb(0, 0, 0);">
+        <nav class="navbar navbar-expand-lg bg-body-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="https://i.postimg.cc/NfJhGL02/Bank-Wordmark-Logo.jpg" style="width: 15%;"
+                        class="d-inline-block align-text-top">
+                </a>
+                <h2 style="color: white;font-family: 'Ysabeau Office', sans-serif;">Revolut Net Banking</h2>
+
+            </div>
+        </nav>
+    </div>
+
+
+
+
+
+<!-- login box -->
+
+
+
+
+    <div id="q1" class="parent1">
+        <div class="container text-center" id="q2">
+            <h1 class="mt-4" id="q3">Revolut</h1>
+            <form class="mt-3 p-3" action="">
+                <div class="mt-2 p-2">
+                    <input (change)="acnoChange($event)" #acno type="text" id="l5" name="acno" placeholder="Enter Acc No."
+                        class="form-control text-center">
+                </div>
+                <div class="mt-2 p-2">
+                    <input (change)="password($event)"  # psw type="password" name="pswd" [placeholder]="data2" id="l6"
+                        class="form-control text-center">
+                </div>
+                <div class="mt-2 p-2">
+                    <button id="b1" (click)="login(acno,psw)" type="button" class="btn btn-outline-light w-100">Login</button>
+                    <br><br>
+                    <h6 id="q4">Don’t have an account?</h6>
+                    <a href="#" id="q5">Sign Up here</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+
+
+<!-- IMAGE ON THE LEFT -->
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .parent2 {
+        position: absolute;
+        bottom: 30px;
+        left: 37%;
+        transform: translateX(-50%);
+        width: 80%;
+        max-width: 850px;
+        opacity: 0.5;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .parent2 {
+            bottom: -165px;
+            width: 206%;
+            left: 28.5%;
+            opacity: 0.3;
+
+        }
+
+    }
+
+
+    .card {
+        position: relative;
+    }
+
+    .card-img {
+        width: 100%;
+        height: auto;
+        border-radius: 35px;
+        /* Add rounded corners if needed */
+    }
+
+    @media only screen and (max-width: 600px) {
+        .card-img {
+            border-radius: 0;
+            /* Remove rounded corners on mobile */
+        }
+    }
+</style>
+
+<body>
+    <div class="parent2">
+        <div class="card text-bg-dark">
+            <img src="https://i.postimg.cc/X74PgrSb/Best-Online-Banks-For-Digital-Banking-Of-July-2023.png"
+                class="card-img" alt="...">
+        </div>
+    </div>
+
+</body>

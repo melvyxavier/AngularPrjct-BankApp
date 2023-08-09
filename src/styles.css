@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* body{
+    display:flex;
+    height:100vh;
+    align-items:center;
+    justify-content:center;
+    font-family:'Josefin Sans', sans-serif;
+  } */
+  @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Alfa+Slab+One&family=Averia+Serif+Libre:wght@300&family=Cinzel&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:wght@300&family=DM+Serif+Display&family=Dancing+Script:wght@700&family=Domine:wght@700&family=IBM+Plex+Mono:wght@500&family=Libre+Baskerville:wght@700&family=Mate+SC&family=Raleway&family=Roboto+Slab:wght@500&family=Shadows+Into+Light&family=Ysabeau+Office&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Alfa+Slab+One&family=Averia+Serif+Libre:wght@300&family=Cinzel&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:wght@300&family=DM+Serif+Display&family=Dancing+Script:wght@700&family=Domine:wght@700&family=IBM+Plex+Mono:wght@500&family=Libre+Baskerville:wght@700&family=Mate+SC&family=Raleway&family=Righteous&family=Roboto+Slab:wght@500&family=Shadows+Into+Light&family=Ysabeau+Office&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Alfa+Slab+One&family=Averia+Serif+Libre:wght@300&family=Cinzel&family=Cinzel+Decorative:wght@700;900&family=Coiny&family=Cormorant+Garamond:wght@300&family=DM+Serif+Display&family=Dancing+Script:wght@700&family=Domine:wght@700&family=IBM+Plex+Mono:wght@500&family=Libre+Baskerville:wght@700&family=Mate+SC&family=Raleway&family=Righteous&family=Roboto+Slab:wght@500&family=Shadows+Into+Light&family=Ysabeau+Office&display=swap');
+  
+  body{
+	/* background:linear-gradient(to right, #150a43, #082746, #140b44, #0c203e); */
+  background-color: #000924;
+  background-size:500% 500%;
+  transition:background 3s ease;
+  background-position:50% 50%
+}  

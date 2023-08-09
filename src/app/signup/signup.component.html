@@ -1,0 +1,192 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        color: rgb(0, 0, 0);
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fcfdff;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgb(255, 255, 255);
+        font-family: 'Ysabeau Office', sans-serif;
+        position: absolute;
+        top: 55.5%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 490px;
+        z-index: 1;
+
+
+
+    }
+
+    #m1 {
+
+        font-family: 'Ysabeau Office', sans-serif;
+        margin: 0 auto;
+        font-size: 30px;
+        color: white;
+        position: absolute;
+        top: 73%;
+        left: 69%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    #m2 {
+
+        margin: 0 auto;
+        color: white;
+        position: absolute;
+        top: 46%;
+        left: 69%;
+        transform: translate(-50%, -50%);
+        font-family: 'Righteous', cursive;
+        font-size: 64px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #0f0433;
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #000000;
+    }
+
+    @media screen and (max-width: 600px) {
+        .container {
+            width: 90%;
+        }
+    }
+
+
+    @media screen and (max-width: 600px) {
+        .container {
+            width: 90%;
+            top: 55%;
+            /* Adjust the positioning to center the container vertically */
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #m1 {
+            font-size: 17px;
+            top: 90%;
+            /* Adjust the positioning of the catch phrase div */
+            left: 40%;
+            transform: translate(-50%, -50%);
+            text-align: left;
+        }
+
+        #m2 {
+            font-size: 38px;
+            top: 20%;
+            left: 39%;
+            /* Reduce the font size for mobile */
+        }
+
+        /* Adjust other styles as needed for mobile view */
+        h1 {
+            font-size: 24px;
+        }
+
+        button {
+            padding: 8px;
+            font-size: 16px;
+        }
+    }
+</style>
+
+
+<body>
+
+    <!-- navbar -->
+    <div class="parent" style="background-color: rgb(0, 0, 0);">
+        <nav class="navbar navbar-expand-lg bg-body-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="https://i.postimg.cc/NfJhGL02/Bank-Wordmark-Logo.jpg" style="width: 15%;"
+                        class="d-inline-block align-text-top">
+                </a>
+                <h2 style="color: white;font-family: 'Ysabeau Office', sans-serif;">Revolut Net Banking</h2>
+
+            </div>
+        </nav>
+    </div>
+
+
+
+    <!-- sign up box -->
+
+    <br>
+    <div id="l1">
+
+    </div>
+
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form action="">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="accountNumber">Account Number</label>
+                <input type="text" id="accountNumber" name="accountNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+
+
+
+    </div>
+    <br>
+    <div><br></div>
+    <div>
+        <p id="m2">
+            One app, all
+            things money </p>
+        <br>
+        <p id="m1">From easy money management, to travel perks and investments. Open your account in a flash.</p>
+    </div>
+</body>

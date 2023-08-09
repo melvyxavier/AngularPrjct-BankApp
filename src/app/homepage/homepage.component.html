@@ -1,0 +1,770 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ysabeau Office', sans-serif;
+  }
+
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #000924;
+  }
+
+  .navbar {
+    display: flex;
+    padding: 0 10px;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .navbar input#menu-toggler {
+    display: none;
+  }
+
+  .navbar #hamburger-btn {
+    cursor: pointer;
+    display: none;
+  }
+
+  .navbar .all-links {
+    display: flex;
+    align-items: center;
+
+  }
+
+  .navbar .all-links li {
+    position: relative;
+    list-style: none;
+
+  }
+
+  .navbar .logo a {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  header a,
+  footer a {
+    margin-left: 40px;
+    text-decoration: none;
+    color: #fff;
+    height: 100%;
+    padding: 20px 0;
+    display: inline-block;
+  }
+
+  header a:hover,
+  footer a:hover {
+    color: #ddd;
+  }
+
+  .homepage {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background: url(https://i.postimg.cc/SKDxwjwG/Hero.jpg);
+    background-position: center 2%;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  /* Media query for mobile devices */
+  @media (max-width: 764px) {
+    .homepage {
+      background-size: 100% auto;
+      /* Adjust background size for mobile */
+      background-position: center center;
+      /* Center background on mobile */
+    }
+
+  }
+
+  .homepage::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .homepage .content {
+    display: flex;
+    height: 85%;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .homepage .content h1 {
+    font-size: 80px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    padding: 0px;
+
+
+  }
+
+  .homepage .content .text {
+    margin-bottom: 50px;
+    color: #010e34;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+
+  .content a {
+    color: #ffffff;
+    display: block;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0 10px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    background: #fff;
+    border: 2px solid #fff;
+    transition: 0.4s ease;
+    box-shadow: 0 10px 20px rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .content a:hover {
+    color: #fff;
+    background: rgb(255, 255, 255);
+  }
+
+  section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 0 0;
+    color: #fffbfb;
+  }
+
+  section h2 {
+    font-size: 2rem;
+  }
+
+  section>p {
+    text-align: center;
+  }
+
+  section .cards {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-top: 50px;
+    padding: 0 10px;
+    justify-content: space-between;
+  }
+
+  section.about {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  .about .company-info {
+    margin-top: 30px;
+  }
+
+  .about h3 {
+    margin: 30px 0 10px;
+  }
+
+  .about .team {
+    text-align: left;
+    width: 100%;
+  }
+
+  .about .team ul {
+    padding-left: 20px;
+  }
+
+  section .cards .card {
+    background: #fff;
+    padding: 40px 15px;
+    list-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgb(255, 255, 255);
+    margin-bottom: 40px;
+    width: calc(100% / 3 - 30px);
+    text-align: center;
+  }
+
+  .portfolio .cards .card {
+    padding: 0 0 20px;
+  }
+
+  .services .card img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    border-radius: 7px;
+
+  }
+
+  .portfolio .card img {
+    width: 100%;
+    height: 500px;
+    padding-bottom: 20px;
+    object-fit: cover;
+    border-radius: 7px;
+  }
+
+  .cards .card p {
+    padding: 0 15px;
+    margin-top: 5px;
+  }
+
+  .about .row {
+    padding: 0 10px;
+  }
+
+  .contact .row {
+    margin: 60px 0 90px;
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .contact .row .col {
+    padding: 0 10px;
+    width: calc(100% / 2 - 50px);
+  }
+
+  .contact .col p {
+    margin-bottom: 10px;
+  }
+
+  .contact .col p i {
+    color: #ffffff;
+    margin-right: 10px;
+  }
+
+  .contact form input {
+    height: 45px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid #bfbfbf;
+  }
+
+  .contact form textarea {
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    height: 150px;
+    outline: none;
+    resize: vertical;
+    border: 1px solid #bfbfbf;
+  }
+
+  .contact form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 17px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #333;
+    transition: 0.2s ease;
+  }
+
+  .contact form button:hover {
+    background: #525252;
+  }
+
+  footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #000;
+    padding: 20px 0;
+  }
+
+  footer div {
+    padding: 0 10px;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer span {
+    color: #fff;
+  }
+
+  footer a {
+    padding: 0;
+  }
+
+  @media screen and (max-width: 860px) {
+    .navbar .all-links {
+      position: fixed;
+      left: -100%;
+      width: 300px;
+      display: block;
+      height: 100vh;
+      top: 75px;
+      background: #333;
+      transition: left 0.3s ease;
+    }
+
+    .navbar #menu-toggler:checked~.all-links {
+      left: 0;
+    }
+
+    .navbar .all-links li {
+      font-size: 18px;
+    }
+
+    .navbar #hamburger-btn {
+      display: block;
+    }
+
+    section>p {
+      text-align: center;
+    }
+
+    section .cards .card {
+      width: calc(100% / 2 - 15px);
+      margin-bottom: 30px;
+    }
+
+    .homepage .content h1 {
+      font-size: 47px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .homepage .content .text {
+      font-size: 12px;
+      padding-left: 105px;
+      padding-right: 100px;
+
+    }
+
+    .content a {
+      font-size: 17px;
+      padding: 9px 20px;
+    }
+
+    .contact .row {
+      flex-direction: column;
+    }
+
+    .contact .row .col {
+      width: 100%;
+    }
+
+    .contact .row .col:last-child {
+      margin-top: 40px;
+    }
+
+    footer a {
+      height: 0;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    section .cards .card {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  #g1 {
+    font-family: 'Righteous', cursive;
+    letter-spacing: .1em;
+
+  }
+</style>
+
+
+
+
+
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="#" id="g1">Revolut</a></h1>
+      <input type="checkbox" id="menu-toggler">
+      <label for="menu-toggler" id="hamburger-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z" />
+        </svg>
+      </label>
+      <ul class="all-links">
+        <li><a href="#profilecheck" data-bs-toggle="modal" data-bs-target="#profilecheck">View Profile</a></li>
+        <li><a href="#balancecheck" data-bs-toggle="modal" data-bs-target="#balancecheck">Balance Check</a></li>
+        <li><a href="#portfolio" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+            aria-controls="offcanvasExample">Money Tranfer</a></li>
+        <li><a href="#about">Account Statement</a></li>
+        <li><a href="#contact">Logout</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <section class="homepage" id="home">
+    <div class="content">
+      <div class="text">
+        <br><br>
+        <h1>Send, Spend and <br>Save Smarter!</h1>
+        <p>
+          Make day-to-day spending a breeze with all things money in one place. <br> Join 30+ million people who already
+          trust us with their money.</p>
+      </div>
+    </div>
+  </section>
+  <section class="services" id="services">
+    <h2 style="font-weight: 1000;text-align: center; font-size: 60px;    font-family: 'Righteous', cursive;
+    ;color: #fc873884">Our Services</h2>
+    <ul class="cards">
+      <li class="card">
+        <img src="https://i.postimg.cc/RZw9zqnH/Paymentsmmm.jpg" alt="img">
+        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #007bff79;">Pay and get paid, hassle-free</h2>
+        <p>Send and request money with a tap, split bills with anyone in 200+ countries.</p>
+      </li>
+      <li class="card">
+        <img src="https://i.postimg.cc/dVwL6vKR/Cards.jpg" alt="img">
+        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #ff00d97e;">Cards with style and substance</h2>
+        <p>Our cards are more than just their good looks. Get instant payment notifications and manage card security in app. Start spending straight away with Google or Apple Pay</p>
+      </li>
+      <li class="card">
+        <img src="https://i.postimg.cc/GpPKNbBc/6d7e5bfa-c72a-499c-a7fd-94c9b600dbbf.png" alt="img">
+        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #fbff0089;">All your travel needs, sorted</h2>
+        <p>Experience one app for all things travel
+          From hassle-free bill splitting to great exchange rates, we’ve got everything you need to supercharge your Stay</p>
+      </li>
+      <li class="card">
+        <img src="https://i.postimg.cc/HLJcczgF/Stocks.jpg" alt="img">
+        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #ff730079;">Investments from just $1</h2>
+        <p>Create your portfolio and start trading with just a few taps. Capital at risk</p>
+      </li>
+      <li class="card">
+        <img src="https://i.postimg.cc/RFdBMrYm/df5753bf-3411-4cfa-987c-c4339753e834.png" alt="img">
+        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #41424279;">Go from cash to crypto, instantly</h2>
+        <p>Buy, sell, and send crypto at the touch of a button.
+
+          Not regulated or protected. Value can go down. Tax may be payable.</p>
+      </li>
+      <li class="card">
+        <img src="https://i.postimg.cc/SRHt4Dmq/FX.jpg" alt="img">
+        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #ff2f0079;">Spend abroad like a local at the real exchange rate</h2>
+        <p>ForEx at your fingertips
+          Enjoy excellent exchange rates for 29 currencies</p>
+      </li>
+    </ul>
+  </section>
+  <section class="portfolio" id="portfolio">
+    <h1 style="font-weight: 1000;text-align: center; font-size: 60px;    font-family: 'Righteous', cursive;
+    ;color: #fc873884">Get a little more in life <br>
+     with Revolut</h1>
+    <ul class="cards">
+      <li class="card">
+        <img src="https://i.postimg.cc/L8yRKFrM/985303a1-aa96-468c-b774-9fdf01135e71.png" alt="img">
+        <h5 style="font-weight: 600;"> Maximise your money
+        Grow your money every day with Savings Vaults</h5>
+      </li>
+      <li class="card">
+        <img src="https://i.postimg.cc/28cXCj8T/Lounge.jpg" alt="img">
+        <h5 style="font-weight: 600;">Travel in style with lounge passes for less!
+        Get up to $10 off when you travel by airplane!</h5>
+      </li>
+      <li class="card">
+        <img src="https://i.postimg.cc/661d38n7/Commodities.jpg" alt="img">
+        <h5 style="font-weight: 600;">Buy gold and silver instantly in-app
+        Buy commodity futures, forex & cryptocurrency contracts</h5>
+      </li>
+    </ul>
+  </section>
+  
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Reach out to us for any inquiries or feedback.</p>
+    <div class="row">
+      <div class="col information">
+        <div class="contact-details">
+          <p><i class="fas fa-map-marker-alt"></i> 123 Campsite Avenue, Wilderness, CA 98765</p>
+          <p><i class="fas fa-envelope"></i> info@campinggearexperts.com</p>
+          <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+          <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
+          <p><i class="fas fa-clock"></i> Saturday: 10:00 AM - 3:00 PM</p>
+          <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+          <p><i class="fas fa-globe"></i> www.codingnepalweb.com</p>
+        </div>
+      </div>
+      <div class="col form">
+        <form>
+          <input type="text" placeholder="Name*" required>
+          <input type="email" placeholder="Email*" required>
+          <textarea placeholder="Message*" required></textarea>
+          <button id="submit" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div>
+      <span>Copyright © 2023 All Rights Reserved</span>
+      <span class="link">
+        <a href="#">Home</a>
+        <a href="#contact">Contact</a>
+      </span>
+    </div>
+  </footer>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ----------------------------------------------------------------------------------------- -->
+<div class="modalbody">
+  <div class="modal fade" id="profilecheck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Hi name</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="your-image-url.jpg" alt="Your Image" class="modal-image">
+          <p>Your Bank balance is $XXX</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal for balance check  -->
+<div class="modal fade" id="balancecheck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Hi name</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="your-image-url.jpg" alt="Your Image" class="modal-image">
+        <p>Your Bank balance is $XXX</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Style for the modal header */
+  .modal-header {
+    background-color: #04172b;
+    color: #fff;
+    padding: 10px 15px;
+  }
+
+  /* Style for the modal title */
+  .modal-title {
+    margin: 0;
+  }
+
+  /* Style for the modal body */
+  .modal-body {
+    padding: 15px;
+    text-align: center;
+
+  }
+
+  /* Style for the modal image */
+  .modal-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  /* Style for the modal footer */
+  .modal-footer {
+    background-color: #f7f7f7;
+    border-top: 1px solid #ddd;
+    padding: 10px 15px;
+  }
+
+  /* Style for the "Close" button */
+  .btn-close {
+    color: #333;
+  }
+
+  /* Style for the "Save changes" button */
+  .btn-primary {
+    background-color: #052445;
+    border: none;
+  }
+
+  /* Style for the "Close" button in the footer */
+  .btn-secondary {
+    background-color: #ccc;
+    border: none;
+  }
+
+  /* Style for the whole modal */
+  .modal-content {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Optional: Add margin to the top of the modal for better positioning */
+  .modal-dialog {
+    margin-top: 50px;
+  }
+</style>
+
+<!-- ------------- -->
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Transfer Money</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="transfer-form">
+      <img src="your-image-url.jpg" alt="Your Image" class="offcanvas-image">
+      <div class="form-group">
+        <label for="fromAccount">From Account:</label>
+        <input type="text" class="form-control" id="fromAccount" placeholder="Enter your account number">
+      </div>
+      <div class="form-group">
+        <label for="toAccount">To Account:</label>
+        <input type="text" class="form-control" id="toAccount" placeholder="Enter recipient's account number">
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="text" class="form-control" id="amount" placeholder="Enter amount to transfer">
+      </div>
+      <button type="button" class="btn btn-primary">Transfer</button>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  /* Style for the offcanvas header */
+  .offcanvas-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+  }
+
+  /* Style for the offcanvas title */
+  .offcanvas-title {
+    margin: 0;
+  }
+
+  /* Style for the offcanvas body */
+  .offcanvas-body {
+    padding: 15px;
+  }
+
+  /* Style for the offcanvas image */
+  .offcanvas-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  /* Style for the form group */
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  /* Style for the form inputs */
+  .form-control {
+    width: 100%;
+  }
+
+  /* Style for the transfer button */
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+
+  /* Style for the whole offcanvas */
+  .offcanvas {
+    width: 300px;
+  }
+
+  /* Optional: Adjust the positioning of the offcanvas */
+  .offcanvas-start {
+    transform: translateX(-100%);
+  }
+</style>
