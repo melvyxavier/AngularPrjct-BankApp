@@ -105,7 +105,7 @@
 
 <body>
 
-<!-- navbar -->
+    <!-- navbar -->
     <div class="parent" style="background-color: rgb(0, 0, 0);">
         <nav class="navbar navbar-expand-lg bg-body-dark sticky-top">
             <div class="container-fluid">
@@ -123,7 +123,7 @@
 
 
 
-<!-- login box -->
+    <!-- login box -->
 
 
 
@@ -133,18 +133,16 @@
             <h1 class="mt-4" id="q3">Revolut</h1>
             <form class="mt-3 p-3" action="">
                 <div class="mt-2 p-2">
-                    <input (change)="acnoChange($event)" #acno type="text" id="l5" name="acno" placeholder="Enter Acc No."
-                        class="form-control text-center">
+                    <input type="text" [(ngModel)]="acno" id="l5" name="acno." placeholder="Enter Acc No." class="form-control text-center">
                 </div>
                 <div class="mt-2 p-2">
-                    <input (change)="password($event)"  # psw type="password" name="pswd" [placeholder]="data2" id="l6"
-                        class="form-control text-center">
+                    <input type="password" [(ngModel)]="psw" name="pswd" placeholder="Enter Password" id="l6" class="form-control text-center">
                 </div>
                 <div class="mt-2 p-2">
-                    <button id="b1" (click)="login(acno,psw)" type="button" class="btn btn-outline-light w-100">Login</button>
+                    <button id="b1" (click)="login()" type="submit" class="btn btn-outline-light w-100">Login</button>
                     <br><br>
                     <h6 id="q4">Don’t have an account?</h6>
-                    <a href="#" id="q5">Sign Up here</a>
+                    <a routerLink="signup" id="q5">Sign Up here</a>
                 </div>
             </form>
         </div>

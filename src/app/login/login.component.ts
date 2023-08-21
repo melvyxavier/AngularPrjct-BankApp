@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,29 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  
-  // data="Happy Banking with us!"
-  //  data2="Enter password"
-  
-  // login(){
-  //   alert("Welcome to Happy banking")
-  // }
 
-  // acnoChange(event:any){
-  //   console.log(event.target.value);
-    
-  // }
+  acno: any
+  psw: any
 
-  // password(event:any){
-  //   console.log(event.target.value);
-    
-  // }
-
-  login(a:any,b:any){
-    console.log(a.value);
-      console.log(b.value);
-      
-    }
+  constructor(private rout:Router) { }
 
   
+
+  login() {
+    console.log(this.acno);
+    console.log(this.psw);
+
+    this.rout.navigateByUrl("home")
+}
+
+
 }
