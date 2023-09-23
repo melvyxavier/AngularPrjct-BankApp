@@ -20,7 +20,7 @@
 
   .navbar {
     display: flex;
-    padding: 0 10px;
+    padding: 0 5px;
     max-width: 1200px;
     width: 100%;
     align-items: center;
@@ -298,28 +298,20 @@
     background: #525252;
   }
 
+  /* Footer */
   footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #000924;
+    color: white;
+    position: relative;
+    bottom: 0px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    background: #000;
-    padding: 20px 0;
   }
 
-  footer div {
-    padding: 0 10px;
-    max-width: 1200px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  footer span {
-    color: #fff;
-  }
-
-  footer a {
-    padding: 0;
+  .v2 {
+    /* visibility: hidden; */
+    display: none;
   }
 
   @media screen and (max-width: 860px) {
@@ -385,9 +377,7 @@
       margin-top: 40px;
     }
 
-    footer a {
-      height: 0;
-    }
+
   }
 
   @media screen and (max-width: 560px) {
@@ -404,7 +394,10 @@
   }
 </style>
 
-
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+</head>
 
 
 
@@ -420,17 +413,39 @@
         </svg>
       </label>
       <ul class="all-links">
-        <li><a href="#profilecheck" data-bs-toggle="modal" data-bs-target="#profilecheck">View Profile</a></li>
-        <li><a href="#balancecheck" data-bs-toggle="modal" data-bs-target="#balancecheck">Balance Check</a></li>
+        <h4 style="color: #bd652e8c;">Hi,Welcome {{name}}</h4>
+        <li (click)="getbalance()"><a href="#co" data-bs-toggle="modal" data-bs-target="#balancecheck">Balance Check</a>
+        </li>
         <li><a href="#portfolio" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
             aria-controls="offcanvasExample">Money Tranfer</a></li>
-        <li><a href="#about">Account Statement</a></li>
-        <li><a href="#contact">Logout</a></li>
-
+        <li><a routerLink="/history">Account Statement</a></li>
       </ul>
+
+      <!-- Default dropend button -->
+      <div class="btn-group dropdown" style="margin-right: 130px;">
+        <button type="button" class="btn btn-light dropdown-toggle text-dark" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="fa-solid fa-gear"></i></button>
+        <ul class="dropdown-menu">
+          <!-- Dropdown menu links -->
+
+          <li (click)="viewProfile()"><a href="#portf" data-bs-toggle="modal" class="text-dark"
+              data-bs-target="#profilecheck"><i class="fa-solid fa-user"></i> View Profile</a></li>
+
+          <li (click)="Logout()"><a href="ppp" class="text-dark"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+              Logout</a></li>
+          <li (click)="deleteActive()"><a class="text-dark text-right"><i class="fa-solid fa-trash"></i>
+              Delete <br>
+              account</a></li>
+
+
+        </ul>
+
+      </div>
+
     </nav>
   </header>
-  <section class="homepage" id="home">
+  <section [ngClass]="dAcno?'v2':' '" class="homepage" id="home">
     <div class="content">
       <div class="text">
         <br><br>
@@ -441,11 +456,15 @@
       </div>
     </div>
   </section>
-  <section class="services" id="services">
-    <h2 style="font-weight: 1000;text-align: center; font-size: 60px;    font-family: 'Righteous', cursive;
-    ;color: #fc873884">Our Services</h2>
 
-<h5>{{sdata}}</h5>
+  <br><br><br>
+
+  <app-delete [data]="dAcno" (onCancel)="cancelp()" (onDelete)="yesDelete($event)"></app-delete>
+
+  <section class="services" id="services">
+    <h2
+      style="font-weight: 1000;text-align: center; font-size: 60px;    font-family: 'Righteous', cursive;color: #fc873884">
+      Our Services</h2>
 
     <ul class="cards">
       <li class="card">
@@ -455,14 +474,17 @@
       </li>
       <li class="card">
         <img src="https://i.postimg.cc/dVwL6vKR/Cards.jpg" alt="img">
-        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #ff00d97e;">Cards with style and substance</h2>
-        <p>Our cards are more than just their good looks. Get instant payment notifications and manage card security in app. Start spending straight away with Google or Apple Pay</p>
+        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #ff00d97e;">Cards with style and substance
+        </h2>
+        <p>Our cards are more than just their good looks. Get instant payment notifications and manage card security in
+          app. Start spending straight away with Google or Apple Pay</p>
       </li>
       <li class="card">
         <img src="https://i.postimg.cc/GpPKNbBc/6d7e5bfa-c72a-499c-a7fd-94c9b600dbbf.png" alt="img">
         <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #fbff0089;">All your travel needs, sorted</h2>
         <p>Experience one app for all things travel
-          From hassle-free bill splitting to great exchange rates, we’ve got everything you need to supercharge your Stay</p>
+          From hassle-free bill splitting to great exchange rates, we’ve got everything you need to supercharge your
+          Stay</p>
       </li>
       <li class="card">
         <img src="https://i.postimg.cc/HLJcczgF/Stocks.jpg" alt="img">
@@ -471,14 +493,16 @@
       </li>
       <li class="card">
         <img src="https://i.postimg.cc/RFdBMrYm/df5753bf-3411-4cfa-987c-c4339753e834.png" alt="img">
-        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #41424279;">Go from cash to crypto, instantly</h2>
+        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #41424279;">Go from cash to crypto, instantly
+        </h2>
         <p>Buy, sell, and send crypto at the touch of a button.
 
           Not regulated or protected. Value can go down. Tax may be payable.</p>
       </li>
       <li class="card">
         <img src="https://i.postimg.cc/SRHt4Dmq/FX.jpg" alt="img">
-        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #ff2f0079;">Spend abroad like a local at the real exchange rate</h2>
+        <h2 style="font-weight: 1000;font-family: 'Coiny', cursive;color: #ff2f0079;">Spend abroad like a local at the
+          real exchange rate</h2>
         <p>ForEx at your fingertips
           Enjoy excellent exchange rates for 29 currencies</p>
       </li>
@@ -487,34 +511,34 @@
   <section class="portfolio" id="portfolio">
     <h1 style="font-weight: 1000;text-align: center; font-size: 60px;    font-family: 'Righteous', cursive;
     ;color: #fc873884">Get a little more in life <br>
-     with Revolut</h1>
+      with Revolut</h1>
     <ul class="cards">
       <li class="card">
         <img src="https://i.postimg.cc/L8yRKFrM/985303a1-aa96-468c-b774-9fdf01135e71.png" alt="img">
         <h5 style="font-weight: 600;"> Maximise your money
-        Grow your money every day with Savings Vaults</h5>
+          Grow your money every day with Savings Vaults</h5>
       </li>
       <li class="card">
         <img src="https://i.postimg.cc/28cXCj8T/Lounge.jpg" alt="img">
         <h5 style="font-weight: 600;">Travel in style with lounge passes for less!
-        Get up to $10 off when you travel by airplane!</h5>
+          Get up to $10 off when you travel by airplane!</h5>
       </li>
       <li class="card">
         <img src="https://i.postimg.cc/661d38n7/Commodities.jpg" alt="img">
         <h5 style="font-weight: 600;">Buy gold and silver instantly in-app
-        Buy commodity futures, forex & cryptocurrency contracts</h5>
+          Buy commodity futures, forex & cryptocurrency contracts</h5>
       </li>
     </ul>
   </section>
-  
+
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
     <p>Reach out to us for any inquiries or feedback.</p>
     <div class="row">
       <div class="col information">
         <div class="contact-details">
-          <p><i class="fas fa-map-marker-alt"></i> 123 Campsite Avenue, Wilderness, CA 98765</p>
-          <p><i class="fas fa-envelope"></i> info@campinggearexperts.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Hamilton Avenue,California , CA 98765</p>
+          <p><i class="fas fa-envelope"></i> info@revolutbankingexperts.com</p>
           <p><i class="fas fa-phone"></i> (123) 456-7890</p>
           <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
           <p><i class="fas fa-clock"></i> Saturday: 10:00 AM - 3:00 PM</p>
@@ -533,57 +557,9 @@
     </div>
   </section>
   <footer>
-    <div>
-      <span>Copyright © 2023 All Rights Reserved</span>
-      <span class="link">
-        <a href="#">Home</a>
-        <a href="#contact">Contact</a>
-      </span>
-    </div>
+    <span>&copy; 2023 Revolut</span>
   </footer>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -594,16 +570,17 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Hi name</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Hi {{name}}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img src="your-image-url.jpg" alt="Your Image" class="modal-image">
-          <p>Your Bank balance is $XXX</p>
+          <img src="https://i.postimg.cc/HW7ScD8g/d28126da-fafc-4907-a85e-ebd680629a7b.jpg" alt="Your Image"
+            class="modal-image" style="width: 30%;">
+          <p>Username : {{name}}</p>
+          <p>Account number : {{acno}}</p>
+
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -614,16 +591,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Hi name</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Hi, {{name}}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img src="your-image-url.jpg" alt="Your Image" class="modal-image">
-        <p>Your Bank balance is $XXX</p>
+        <img
+          src="https://i.postimg.cc/5yfxD5Z9/18-705-518-im-genes-de-3d-Im-genes-fotos-y-vectores-de-stock-Shutterstock.jpg"
+          alt="Your Image" class="modal-image">
+        <p>Your current bank balance is INR {{balance}}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -672,18 +649,21 @@
   .btn-primary {
     background-color: #052445;
     border: none;
+    border-radius: 5px;
   }
 
   /* Style for the "Close" button in the footer */
   .btn-secondary {
     background-color: #ccc;
     border: none;
+    border-radius: 5px;
+
   }
 
   /* Style for the whole modal */
   .modal-content {
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.473);
   }
 
   /* Optional: Add margin to the top of the modal for better positioning */
@@ -700,32 +680,69 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <div class="transfer-form">
-      <img src="your-image-url.jpg" alt="Your Image" class="offcanvas-image">
-      <div class="form-group">
-        <label for="fromAccount">From Account:</label>
-        <input type="text" class="form-control" id="fromAccount" placeholder="Enter your account number">
+    <form (ngSubmit)="moneyTransfer()" [formGroup]="moneyTransferForm">
+      <div class="transfer-form">
+        <img src="https://i.postimg.cc/8PRntbQC/Premium-Photo-Money-transfer-concept.jpg" alt="Your Image"
+          class="offcanvas-image">
+        <div class="form-group">
+          <label for="fromAccount">Recipient Account:</label>
+          <input formControlName="rAcno" type="text" class="form-control" id="a1" name="racno"
+            placeholder="Enter recipient's account number">
+        </div>
+        <div>
+          <p *ngIf="moneyTransferForm.get('rAcno')?.errors&&this.moneyTransferForm.get('rAcno')?.touched"
+            class="text-danger">*Invalid account number</p>
+        </div>
+        <div class="form-group">
+          <label for="toAccount">Amount:</label>
+          <input formControlName="amount" type="text" class="form-control" id="a2" name="amnt0"
+            placeholder="Enter amount to transfer">
+        </div>
+
+        <div>
+          <p *ngIf="moneyTransferForm.get('amount')?.errors&&this.moneyTransferForm.get('amount')?.touched"
+            class="text-danger">*Please type the amount</p>
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Password:</label>
+          <input formControlName="psw" type="text" class="form-control" id="a3" name="spswd"
+            placeholder="Enter your password">
+        </div>
+
+        <div>
+          <p *ngIf="moneyTransferForm.get('psw')?.errors&&this.moneyTransferForm.get('psw')?.touched"
+            class="text-danger">
+            *Incorrect password</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Transfer</button>
       </div>
-      <div class="form-group">
-        <label for="toAccount">To Account:</label>
-        <input type="text" class="form-control" id="toAccount" placeholder="Enter recipient's account number">
-      </div>
-      <div class="form-group">
-        <label for="amount">Amount:</label>
-        <input type="text" class="form-control" id="amount" placeholder="Enter amount to transfer">
-      </div>
-      <button type="button" class="btn btn-primary">Transfer</button>
+    </form>
+    <div class="text-center p-5">
+      <h6 [ngClass]="msgClr?'mg':'mr'">{{message}}</h6>
     </div>
+
   </div>
 </div>
 
 
 <style>
   /* Style for the offcanvas header */
+  .mg {
+    color: green;
+  }
+
+  .mr {
+    color: red;
+  }
+
+
+
   .offcanvas-header {
-    background-color: #007bff;
+    background-color: #041324;
     color: #fff;
-    padding: 10px 15px;
+    padding: 8px 15px;
   }
 
   /* Style for the offcanvas title */
@@ -757,7 +774,7 @@
 
   /* Style for the transfer button */
   .btn-primary {
-    background-color: #007bff;
+    background-color: #b75c01;
     border: none;
   }
 

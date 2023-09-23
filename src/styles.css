@@ -16,7 +16,10 @@
   body{
 	/* background:linear-gradient(to right, #150a43, #082746, #140b44, #0c203e); */
   background-color: #000924;
+
   background-size:500% 500%;
   transition:background 3s ease;
   background-position:50% 50%
 }  
+
+

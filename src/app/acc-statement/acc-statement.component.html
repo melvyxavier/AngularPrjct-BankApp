@@ -1,0 +1,264 @@
+<style>
+    /* Reset styles and common styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        font-family: 'Ysabeau Office', sans-serif;
+        background-color: #ffffff;
+    }
+
+    /* Header styles */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: #000924;
+        z-index: -1;
+    }
+
+    .navbar {
+        display: flex;
+        padding: 0 10px;
+        max-width: 1200px;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .navbar a {
+        margin-left: 40px;
+        text-decoration: none;
+        color: #fff;
+        height: 100%;
+        padding: 20px 0;
+        display: inline-block;
+    }
+
+    .navbar a:hover {
+        color: #ddd;
+    }
+
+    /* Account Statement page content */
+    main {
+        max-width: 1300px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 10px rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        margin-top: 88px;
+        z-index: 3;
+    }
+
+    h1 {
+        font-size: 36px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: 'Ysabeau Office', sans-serif;
+    }
+
+    /* Transaction controls */
+    .transaction-controls {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .transaction-controls button {
+        margin-right: 10px;
+        padding: 10px 20px;
+        background-color: #2b3051;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Transaction history table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 5px;
+    }
+
+    th {
+        background-color: #2b3051;
+        color: white;
+    }
+
+    .positive {
+        color: #28a745;
+    }
+
+    .negative {
+        color: #dc3545;
+    }
+
+
+
+    #g2 {
+        letter-spacing: .1em;
+
+    }
+
+
+    /* Back to Home button styles */
+    .back-to-home {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .ggg {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn-back {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #2b3051;
+        color: white;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-back:hover {
+        background-color: #253c54;
+    }
+
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #000924;
+        color: white;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+
+    @media screen and (max-width: 768px) {
+        main {
+            margin: 60px auto;
+            padding: 10px;
+            margin-top: 83px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        .transaction-controls button {
+            padding: 8px 16px;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+
+        table {
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 8px;
+        }
+
+        .btn-back {
+            padding: 8px 16px;
+        }
+    }
+
+    /* Responsive styles for even smaller screens (e.g., smartphones) */
+    @media screen and (max-width: 480px) {
+        .navbar {
+            padding: 0 5px;
+        }
+
+        .navbar a {
+            margin-left: 20px;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo"><a href="#" id="g2" style="font-family: 'Righteous', cursive;">Revolut</a></h1>
+        </nav>
+
+
+
+
+
+
+
+
+    </header>
+    <main>
+        <h1>Account Statement</h1>
+        <section class="transaction-controls">
+            <button (click)="filterData('')" type="button">All</button>
+            <button (click)="filterData('DEBIT')" type="button">Debit</button>
+            <button (click)="filterData('CREDIT')" type="button">Credit</button>
+        </section>
+
+
+        <div *ngIf="spinner" class="text-center p-4">
+            <i class="fa-solid fa-spinner fa-spin fa-3x text-info"></i>
+        </div>
+
+        <section class="transaction-history">
+            <table *ngIf="!spinner">
+                <thead>
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Date</th>
+                        <th>Account Number</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- data |pipename :search string : searchkey -->
+                    <tr *ngFor="let i of transactionArray | filter: searchTerm : 'type',let j=index">
+                        <td scope="row">{{j+1}}</td>
+                        <td>{{i.date}}</td>
+                        <td>{{i.tacno}}</td>
+                        <td>{{i.amount}}</td>
+                        <td>{{i.type}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="back-to-home">
+            <button type="submit" (click)="backToHome()" class="btn-back">Back to Home</button>
+        </section>
+
+        <section class="ggg">
+            <button (click)="pdfExport()" id="download" class="btn btn-outline-dark"> Download <i
+                    class="fa-solid fs-2 fa-file-arrow-down mt-2"></i></button>
+
+        </section>
+    </main>
+
+    <footer>
+        <span>&copy; 2023 Revolut</span>
+    </footer>
+</body>
