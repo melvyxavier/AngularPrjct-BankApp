@@ -15,7 +15,7 @@ const options = {
 
 export class BankDataService {
 
-  baseUrl: any = "http://localhost:5055"
+  baseUrl: any = "https://revolut-bankserver.onrender.com"
 
   constructor(private http: HttpClient) { }
 
