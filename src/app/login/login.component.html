@@ -1,94 +1,39 @@
-<!-- LOGIN BOX -->
+
+
+
 
 <style>
     body {
+        font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        font-family: 'Ysabeau Office', sans-serif;
-        background-color: #f1f1f1;
-    }
-
-    /* Media query for mobile devices */
-    @media (max-width: 764px) {
-        body {
-            background-size: 100% auto;
-            /* Adjust background size for mobile */
-            background-position: center center;
-            /* Center background on mobile */
-        }
+        -webkit-text-size-adjust: 100%;
+        
 
     }
 
-    #q1 {
-        position: absolute;
-        top: 52%;
-        left: 77%;
-        transform: translate(-50%, -50%);
-        width: 75%;
-        max-width: 450px;
-        z-index: 1;
-    }
+
+
 
     .container {
-        background-color: rgb(0, 0, 0);
-        border-radius: 55px;
-        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.598), 0 4px 8px 0 rgba(255, 255, 255, 0.598);
-        color: #ffffff;
-        font-family: Arial, sans-serif;
-
-    }
-
-    h1#q3 {
-        padding-top: 19px;
-        padding-bottom: -4px;
-        text-align: center;
-        margin: -1rem 0;
-        font-family: 'Righteous', cursive;
-        letter-spacing: .1em;
-
-
-    }
-
-    .form-control {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 17px;
-        background-color: #f8f8f8;
+        color: rgb(0, 0, 0);
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fcfdff;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgb(255, 255, 255);
         font-family: 'Ysabeau Office', sans-serif;
+        position: absolute;
+        top: 55%;
+        left: 73%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 490px;
+        z-index: 1;
 
     }
 
-    button#b1 {
-        width: 100%;
-        padding: 10px;
-        border-radius: 350px;
-        background-color: rgba(49, 116, 179, 0.427);
-        opacity: .8;
-        color: #fff;
-        cursor: pointer;
-        font-family: 'Ysabeau Office', sans-serif;
-
-    }
-
-    #b1:hover {
-        opacity: .6;
-
-
-
-    }
-
-
-
-    #q4 {
-        text-align: center;
-        color: rgba(255, 255, 255, 0.705);
-        font-family: 'Ysabeau Office', sans-serif;
-
-    }
-
+   
     #q5 {
         text-align: center;
         color: rgba(109, 129, 196, 0.744);
@@ -98,26 +43,123 @@
 
     }
 
+    #m2 {
+
+        margin: 0 auto;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        font-family: 'Righteous', cursive;
+        font-size: 70px;
+        font-stretch: expanded;
+        font-weight: 400;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        color: black;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #000000;
+        border-radius: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #0f0433;
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #1f2941d0;
+    }
+
     @media only screen and (max-width: 940px) {
-        #q1 {
+        .container {
+            width: 90%;
+        }
+    }
+
+
+    @media only screen and (max-width: 940px) {
+        .container {
             width: 80%;
+            top: 63%;
             left: 50%;
-            top: 50%;
             transform: translate(-50%, -50%);
         }
 
-        #q3 {
-            font-size: 43px;
-            padding-bottom: 0px;
+        
+        #m2 {
+            font-size: 23px;
+            top: 23%;
+            font-weight: 100;
+            text-align: left;
+            margin-left: 90px;
+            text-align: center;
+        }
 
+        /* Adjust other styles as needed for mobile view */
+        h1 {
+            font-size: 24px;
+        }
+
+        button {
+            padding: 8px;
+            font-size: 16px;
         }
     }
+
+    /* @media only screen and (min-width: 320px){
+
+#m2{
+    display: none;
+}
+
+#m1{
+    display: none;
+}
+
+    } */
+
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #000000;
+        color: white;
+        position: absolute;
+        bottom: 0;
+        margin-top: 15px;
+        width: 100%;
+    }
 </style>
+
 
 <body>
 
     <!-- navbar -->
-    <div class="parent" style="background-color: #000000;">
+    <div class="parent" style="background-color: rgb(0, 0, 0);">
         <nav class="navbar navbar-expand-lg bg-body-dark sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -132,15 +174,14 @@
 
 
 
+    <!-- sign up box -->
 
+    <br>
+    <div id="l1">
 
-    <!-- login box -->
+    </div>
 
-
-
-
-    <div id="q1" class="parent1">
-        <div class="container text-center" id="q2">
+    <div class="container text-center">
             <h1 class="mt-3" id="q3">Revolut</h1>
             <form (ngSubmit)="login()" [formGroup]="loginForm" class="mt-3 p-3" action="">
                 <div class="mt-2 p-2">
@@ -171,87 +212,20 @@
             </form>
 
         </div>
+
+
+    <br>
+    <div><br></div>
+    <div>
+        <p id="m2">
+            One app, <br>
+            all things money!</p>
+        <br>
     </div>
-
-
-</body>
-
-
-<!-- IMAGE ON THE LEFT -->
-
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-    }
-
-    .parent2 {
-        position: absolute;
-        bottom: 60px;
-        left: 37%;
-        transform: translateX(-50%);
-        width: 80%;
-        max-width: 820px;
-        opacity: 0.5;
-    }
-
-    @media only screen and (max-width: 940px) {
-        .parent2 {
-            bottom: -50px;
-            width: 100%;
-            left: 50%;
-            opacity: 0;
-
-        }
-
-    }
-
-
-    .card {
-        position: relative;
-    }
-
-    .card-img {
-        width: 100%;
-        height: auto;
-        border-radius: 35px;
-        /* Add rounded corners if needed */
-    }
-
-    @media only screen and (max-width: 940px) {
-        .card-img {
-            border-radius: 0;
-            /* Remove rounded corners on mobile */
-        }
-    }
-
-    /* Footer */
-    footer {
-        text-align: center;
-        padding: 10px;
-        background-color: #000000;
-        color: white;
-        position: absolute;
-        bottom: 0;
-        margin-top: 15px;
-        width: 100%;
-    }
-</style>
-
-<body>
-    <div class="parent2">
-        <div class="card text-bg-dark">
-            <img src="https://i.postimg.cc/X74PgrSb/Best-Online-Banks-For-Digital-Banking-Of-July-2023.png"
-                class="card-img" alt="...">
-        </div>
-    </div>
-
-
-
 
     <!-- <footer>
-            <span>&copy; 2023 Revolut</span>
-        </footer> -->
+        <span>&copy; 2023 Revolut</span>
+    </footer> -->
+
 
 </body>
